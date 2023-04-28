@@ -24,6 +24,7 @@
 //  for(let i=0;i<value.length;i++){
 // value[i].style.backgroundColor='grey';
 //  }
+//background change
  let input=document.querySelectorAll('.list-group-item:nth-child(odd)');
  input[1].style.backgroundColor='green';
  for(var i=0;i<input.length;i++){
