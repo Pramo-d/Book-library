@@ -1,40 +1,6 @@
 
 
     
-
-  
- 
-//  let nam=localStorage.setItem("name",name);
-//  let mail=localStorage.setItem("email",email);
-//  let pass=localStorage.setItem("password",password);
-  
-//  let obj={
-//     Username:username.value,
-//     email:email.value,
-//     password:password.value,
-//  }
- //localStorage.setItem('obj.email',Json.stringfy(obj));
-//show();
-
-  
-//   function show(){
-//     let parent=document.getElementById('value');
-//   let child =document.createElement('li');
-//   child.textContent= obj.email;
-//   child.appendChild(document.createTextNode(child));
-  
- 
-//   }
-
-// button.addEventListener('click',function(){
-//     let obj={
-//         Username:name.value,
-//         email:email.value,
-//         password:password.value,
-//      }
-//      localStorage.setItem('obj.email',JSON.stringfy(obj));
-
-// })
    
 let username=document.getElementById('name');
 let email=document.getElementById('email');
@@ -52,23 +18,32 @@ button.onclick=()=>{
     
      }
      localStorage.setItem(email.value,JSON.stringify(obj));
-    //      let ul=document.getElementById('value')
-    //      ul.parentElement;   
-    //  let li=document.createElement('li');
-    //  li.appendChild(document.createTextNode(obj));
-
-    //   let show=document.createElement('li');
-    //   show.setAttribute("type","button");
-    //   show.setAttribute("value",obj);
-    // document.body.appendChild(show) ;
-
+     
     showUserOnScreen(obj);
 
     }
 
     function showUserOnScreen(obj){
-        const parenElement=document.getElementById("value");
+        const parenElement=document.getElementById("love");
         const childElememt=document.createElement('li');
         childElememt.textContent=obj.name+"-"+obj.email+"-"+obj.password;
+ 
+        const delbtn=document.createElement('input');
+        delbtn.type= "button"
+        delbtn.value ='Delete'
+       
+       
+       delbtn.onclick =()=> {
+           localStorage.removeItem(obj.email);
+           parenElement.removeChild(childElememt);
+       }
+       childElememt.appendChild(delbtn);
+         
         parenElement.appendChild(childElememt);
-    }
+       
+     }
+     
+     
+        
+
+     
