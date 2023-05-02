@@ -13,7 +13,7 @@ button.onclick=()=>{
     let obj={
         name: username.value,
         email:email.value,
-        password:password.value,
+        password:password.value, 
        // key,
     
      }
@@ -37,13 +37,27 @@ button.onclick=()=>{
            localStorage.removeItem(obj.email);
            parenElement.removeChild(childElememt);
        }
+ 
+       const edit=document.createElement('input');
+       edit.type="button";
+       edit.value='Edit'
+       edit.onclick=()=>{
+        localStorage.removeItem(obj.email);
+        parenElement.removeChild(childElememt);
+           
+        username.value=obj.name;
+        email.value=obj.email;
+        password.value=obj.password;
+           
+        
+           
+       }
        childElememt.appendChild(delbtn);
+
+       childElememt.appendChild(edit);
          
         parenElement.appendChild(childElememt);
        
      }
      
-     
-        
-
-     
+   
