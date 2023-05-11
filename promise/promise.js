@@ -1,30 +1,35 @@
-
-const posts=[
-    {tile:'post one',defined:new Date().getTime()},
-    {tile:'post two',defined:new Date().getTime()}
-]
-function getPost(){
-    for(let i=0;i<posts.length;i++){
-        console.log(posts[i])
-    }
-}
- function LastUserActivityTime(){
-     new Promise((resolve,reject)=>{
-    setTimeout(()=>{
-        const date=new Date().getTime();
-        resolve()
-    },1000)
-})
- }
- function create3Post(){
+ function checkBook(){
     return new Promise((resolve,reject)=>{
-setTimeout(()=>{
-    const newPost=[{title:'post three',defined:new  Date().getTime()}]
-    resolve(newPost)
-})
+        setTimeout(() => {
+            const book='i have book';
+            resolve(book);
+        }, 2000);
     })
  }
- create3Post().then((ele)=>{
-    console.log(ele)
-    return   getPost()
- })
+ function checkIdCard(book){
+    return new Promise((resolve,reject)=>{
+        setTimeout(() => {
+            const idCard=book+' i have idCard ';
+            resolve(idCard)
+        }, 2000);
+    })
+ }
+ function entryInLibrary(idCard){
+    return new Promise((resolve,reject)=>{
+        setTimeout(() => {
+            const entry=idCard+' i am In library ';
+            resolve(entry)
+        }, 2000);
+    })
+ }
+ async function nowStudy(){
+    const book=await checkBook();
+     console.log(book)
+    const  idCard=await checkIdCard(book);
+    console.log('i have a idCard')
+
+    const  entry=await entryInLibrary(idCard);
+    console.log('i get entry')
+
+ }
+ nowStudy()
