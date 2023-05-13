@@ -20,7 +20,7 @@ button.onclick=()=>{
 
     //  localStorage.setItem(email.value,JSON.stringify(obj));
      axios.post("https://crudcrud.com/api/7e393b9d20904233ba090bc035a96b3f/appointmentData",obj)
-     .then((response)=>{
+        .then((response)=>{
         console.log(response);
      }).catch((err)=>{
         console.log(err);
