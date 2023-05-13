@@ -39,6 +39,7 @@ button.onclick=()=>{
         }).catch((err)=>{
             console.log(err);
         })
+        
     })
 
     function showUserOnScreen(obj){
@@ -52,17 +53,26 @@ button.onclick=()=>{
        
        
        delbtn.onclick =()=> {
-           localStorage.removeItem(obj.email);
-           parenElement.removeChild(childElememt);
+        //    localStorage.removeItem(obj.email);
+        //    parenElement.removeChild(childElememt);
+           axios.delete("https://crudcrud.com/api/7e393b9d20904233ba090bc035a96b3f/appointmentData")
+           .then((response)=>{
+               console.log(response)
+               for(var i=0;i<response.data.length;i++){
+                   showUserOnScreen(response.data[i]);
+               }
+           }).catch((err)=>{
+               console.log(err);
+           })
        }
  
        const edit=document.createElement('input');
        edit.type="button";
        edit.value='Edit'
        edit.onclick=()=>{
-        localStorage.removeItem(obj.email);
-        parenElement.removeChild(childElememt);
-           
+        // localStorage.removeItem(obj.email);
+        // parenElement.removeChild(childElememt);
+        
         username.value=obj.name;
         email.value=obj.email;
         password.value=obj.password;
