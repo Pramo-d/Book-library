@@ -39,6 +39,7 @@ button.onclick=()=>{
         }).catch((err)=>{
             console.log(err);
         })
+      
         
     })
 
@@ -72,7 +73,15 @@ button.onclick=()=>{
        edit.onclick=()=>{
         // localStorage.removeItem(obj.email);
         // parenElement.removeChild(childElememt);
-        
+        axios.put("https://crudcrud.com/api/7e393b9d20904233ba090bc035a96b3f/appointmentData")
+        .then((response)=>{
+            console.log(response)
+            for(var i=0;i<response.data.length;i++){
+                showUserOnScreen(response.data[i]);
+            }
+        }).catch((err)=>{
+            console.log(err);
+        })
         username.value=obj.name;
         email.value=obj.email;
         password.value=obj.password;
