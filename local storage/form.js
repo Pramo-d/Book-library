@@ -25,9 +25,21 @@ button.onclick=()=>{
      }).catch((err)=>{
         console.log(err);
      })
+
      showUserOnScreen(obj);
 
     }
+    window.addEventListener("DOMContentLoaded",()=>{
+        axios.get("https://crudcrud.com/api/7e393b9d20904233ba090bc035a96b3f/appointmentData")
+        .then((response)=>{
+            console.log(response)
+            for(var i=0;i<response.data.length;i++){
+                showUserOnScreen(response.data[i]);
+            }
+        }).catch((err)=>{
+            console.log(err);
+        })
+    })
 
     function showUserOnScreen(obj){
         const parenElement=document.getElementById("love");
